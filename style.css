@@ -1,0 +1,153 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(to bottom right, rgb(255 180 35), #f78c00, rgb(255, 130, 0));
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#box {
+    width: 1000px;
+    height: 400px;
+
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.7);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#box_login {
+    background-color: #F8A523;
+    border-radius: 8px 0px 0px 8px;
+
+    width: 500px;
+    height: 400px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    p, label {
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        font-family: Inter;
+    }
+
+    button {
+        color: #ffffff;
+        border: 0.125em solid #ffffff;
+    }
+
+    button:hover {
+        box-shadow: 0 8px 16px rgba(255, 255, 255, 0.7);
+    }
+}
+
+#box_cadastro {
+    background-color: #ffffff;
+    border-radius: 0px 8px 8px 0px;
+    
+    width: 500px;
+    height: 400px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    p, label {
+        color: #F8A523;
+        font-size: 24px;
+        font-weight: bold;
+        font-family: Inter;
+    }
+
+    button {
+        color: #F8A523;
+        border: 0.125em solid #f8a523;
+    }
+
+    button:hover {
+        box-shadow: 0 8px 16px rgba(248, 165, 35, 0.7);
+    }
+
+    input {
+        border: 1px solid #F8A523;
+    }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 170px;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+label {
+    width: 285px;
+    display: flex;
+    gap: 10px;
+}
+
+input {
+    border-radius: 5px;
+    border: none;
+
+    width: 100%;
+    padding: 3px;
+}
+
+input:focus {
+    outline: none;
+    border: none;
+}
+
+button {
+    appearance: none;
+    background-color: transparent;
+    border-radius: 0.9375em;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    line-height: normal;
+    outline: none;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    will-change: transform;
+    padding: 15px 25px;
+}
+
+button:disabled {
+    pointer-events: none;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+button:active {
+    box-shadow: none;
+    transform: translateY(0);
+}
