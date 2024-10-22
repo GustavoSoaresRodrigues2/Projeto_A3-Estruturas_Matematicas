@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Projeto A3</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+
+            box-sizing: border-box;
+        }
+
+        .background {
+            display: flex;
+            flex-direction: row;
+        }
+        
+        .container {
+            width: 50%;
+            height: 100vh;
+        }
+
+        .primeiro {
+            background-color: orange;
+        }
+
+        .segundo {
+            background-color: white;
+        }
+
+        .linha {
+            position: absolute;
+
+            width: 500px;
+            height: 1px;
+        }
+
+        .acima {
+            background-color: white;
+
+            top: 100px;
+            left: 40%;
+
+            transform: rotate(40deg);
+        }
+
+        .abaixo {
+            background-color: white;
+
+            bottom: 100px;
+            left: 40%;
+
+            transform: rotate(135deg);
+        }
+
+        .triangulo_escaleno {
+            position: absolute;
+
+            background-color: white;
+            clip-path: polygon(0% 100%, 100% 0%, 100% 100%);
+        }
+
+        .baixo {
+            bottom: 0;
+            left: 14%;
+            width: 500px;
+            height: 250px;
+        }
+
+        .cima {
+            top: -125px;
+            left: 23%;
+            width: 250px;
+            height: 500px;
+
+            transform: rotate(270deg);
+        }
+    </style>
+
+</head>
+<body>
+    <div class="background">
+        <div class="primeiro container"></div>
+        <div class="segundo container"></div>
+    </div>
+    <div class="linhas">   
+        <div class="triangulo_escaleno baixo"></div>
+        <div class="triangulo_escaleno cima"></div>
+    </div>
+    
+</body>
+</html>
+
+
+
+
+ 
+
+
