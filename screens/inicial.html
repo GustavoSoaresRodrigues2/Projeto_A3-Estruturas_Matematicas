@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Minimalista com Menu Toggle</title>
+    <link rel="stylesheet" href="../styles/inicial.css">
+</head>
+<body>
+
+    <!-- Botão para abrir o menu (visível quando o menu está fechado) -->
+    <button id="menu-toggle" class="menu-toggle closed">☰</button>
+
+    <!-- Side Menu -->
+    <div class="side-menu" id="side-menu">
+        <div class="menu-header">
+            <!-- Título do Menu e Botão de Fechar no mesmo contêiner -->
+            <h2>Menu</h2>
+            <button id="menu-close" class="menu-toggle-close">✖</button>
+        </div>
+        <ul>
+            <li><a href="#">Página Inicial</a></li>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">Serviços</a></li>
+            <li><a href="#">Contato</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content" id="main-content">
+        <!-- Retângulo com Número Aleatório e Gráfico -->
+        <div class="header-box">
+            <div class="random-number">
+                <h1 id="random-number"></h1>
+            </div>
+            <div class="chart">
+                <!-- Imagem de gráfico placeholder -->
+                <img src="https://via.placeholder.com/150" alt="Gráfico">
+            </div>
+        </div>
+
+        <!-- Div 1 -->
+        <div class="content-box">
+            <div class="text">
+                <p>Facebook</p>
+                <p>****</p>
+            </div>
+            <button class="blue-button">Ver senha</button>
+        </div>
+
+        <!-- Div 2 -->
+        <div class="content-box">
+            <div class="text">
+                <p>Twitter</p>
+                <p>****</p>
+            </div>
+            <button class="blue-button">Ver senha</button>
+        </div>
+    </div>
+
+    <!-- Botão no canto inferior direito -->
+    <button class="bottom-right-button" id="open-modal">+</button>
+
+    <!-- Modal para cadastrar nova senha -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <h2>Cadastrar nova senha</h2>
+            <form>
+                <label for="input1">Nome - Aplicativo</label>
+                <input type="text" id="input1" name="input1">
+                
+                <label for="input2">Senha</label>
+                <input type="password" id="input2" name="input2">
+
+                <div class="modal-buttons">
+                    <button type="button" id="cancel-btn">Cancelar</button>
+                    <button type="submit">OK</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Novo modal para ver senha -->
+    <div class="modal" id="modal-new-input">
+        <div class="modal-content">
+            <h2>Insira sua senha</h2>
+            <p>Insira a senha da conta pra ter acesso as sua senha criptografada</p>
+            <form>
+                <label for="new-input">Senha</label>
+                <input type="password" id="new-input" name="new-input">
+    
+                <div class="modal-buttons">
+                    <button type="button" id="new-cancel-btn">Cancelar</button>
+                    <button type="submit">OK</button>
+                </div>
+            </form>
+        </div>
+    </div>
+        
+
+    <script>
+        // Controle do menu lateral
+        document.getElementById('menu-toggle').addEventListener('click', function () {
+            var menu = document.getElementById('side-menu');
+            var content = document.getElementById('main-content');
+            var openButton = document.getElementById('menu-toggle');
+            var closeButton = document.getElementById('menu-close');
+            
+            // Alterna o estado do menu aberto/fechado
+            menu.classList.toggle('menu-open');
+            content.classList.toggle('menu-open-content');
+            
+            // Esconde o botão de abrir quando o menu está aberto
+            if (menu.classList.contains('menu-open')) {
+                openButton.style.display = 'none';
+                closeButton.style.display = 'block';
+            } else {
+                openButton.style.display = 'block';
+                closeButton.style.display = 'none';
+            }
+        });
+
+        // Adiciona evento para o botão de fechar também
+        document.getElementById('menu-close').addEventListener('click', function () {
+            document.getElementById('menu-toggle').click();
+        });
+
+        // Abre o modal de cadastrar senha
+        document.getElementById('open-modal').addEventListener('click', function () {
+            document.getElementById('modal').style.display = 'flex'; // Mostrar o modal
+        });
+
+        // Fechar modal ao clicar em "Cancelar"
+        document.getElementById('cancel-btn').addEventListener('click', function () {
+            document.getElementById('modal').style.display = 'none'; // Esconder o modal
+        });
+
+        // Abre o novo modal ao clicar em qualquer botão "blue-button"
+        document.querySelectorAll('.blue-button').forEach(function(button) {
+            button.addEventListener('click', function () {
+                document.getElementById('modal-new-input').style.display = 'flex'; // Mostrar o modal
+            });
+        });
+
+        // Fechar o novo modal ao clicar em "Cancelar"
+        document.getElementById('new-cancel-btn').addEventListener('click', function () {
+            document.getElementById('modal-new-input').style.display = 'none'; // Esconder o modal
+        });
+    </script>
+
+</body>
+</html>
