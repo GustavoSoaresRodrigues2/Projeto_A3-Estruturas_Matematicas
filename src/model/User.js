@@ -32,3 +32,5 @@ class User {
         this._senha = value;
     }
 }
+
+module.exports = User
