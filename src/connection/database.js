@@ -1,13 +1,15 @@
-require('dotenv').config({path: 'dbinf.env'});
-const { Client } = require('pg');
+import dotenv from 'dotenv';
+import pg from 'pg';
+const { Pool } = pg; 
+
+dotenv.config({ path: 'dbinf.env' });
 
 const dbHost = process.env.DB_HOST;
 const dbUser = process.env.DB_USER;
 const dbPassword = process.env.DB_PASSWORD;
 const dbName = process.env.DB_NAME;
 
-
-const client = new Client({
+const client = new Pool({
   user: dbUser,         
   host: dbHost,
   database: dbName,     
@@ -20,10 +22,10 @@ const client = new Client({
 
 client.connect((err) => {
   if (err) {
-      console.error('Erro ao conectar ao banco de dados: ' + err.stack);
-      return;
+    console.error('Erro ao conectar ao banco de dados: ' + err.stack);
+    return;
   }
-  console.log('Conectado ao banco de dados como ID ' + connection.threadId);
+  console.log('Conectado ao banco de dados');
 });
 
-module.exports = connection;
+export { client };
